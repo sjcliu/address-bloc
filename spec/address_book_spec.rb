@@ -131,6 +131,18 @@ RSpec.describe AddressBook do
       book.import_from_csv("entries.csv")
       entry = book.binary_search("Billy")
       expect(entry).to be_nil
-    end 
+    end
   end
+
+  #Assignment 23
+  context "#nuke" do
+    it "should delete all entries" do
+    book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+    book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+    book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+
+    book.nuke
+    expect(book.entries.size).to eq 0
+  end
+end
 end
